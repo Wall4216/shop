@@ -11,17 +11,33 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    const GENDER_MALE = 1;
+    const GENDER_FEMALE = 2;
+    protected $fillable = [
+        'name', 'surname', 'email', 'password', 'patronymic', 'age', 'gender', 'address'
+    ];
 
+    protected $table = 'users';
+    protected $guarded = false;
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+
+    static function getGenders()
+    {
+        return [
+            self::GENDER_MALE => 'Мужской',
+            self::GENDER_FEMALE => 'Женский',
+        ];
+    }
+
+    public function getGendertitleAttribute()
+    {
+        return self::getGenders()[$this->gender];
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.

@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавить пользователя</h1>
+                    <h1 class="m-0">Редактировать пользователя</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -23,20 +23,13 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('user.store')}}" method="post">
+                <form action="{{route('user.update', $user->id)}}" method="post">
                     @csrf
+                    @method('patch')
                     <div class="form-group">
                         <input type="text" value="{{old('name')}}" class="form-control" name="name" placeholder="Имя">
                     </div>
-                    <div class="form-group">
-                        <input type="text" value="{{old('email')}}" class="form-control" name="email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" value="{{old('password')}}" class="form-control" name="password" placeholder="Пароль">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" value="{{old('password_confirmation')}}" class="form-control" name="password_confirmation" placeholder="Пароль">
-                    </div>
+
                     <div class="form-group">
                         <input type="text" value="{{old('surname')}}" class="form-control" name="surname" placeholder="Фамилия">
                     </div>
@@ -52,13 +45,14 @@
                     <div class="form-group">
                         <select name="gender" class="custom-select form-control" id="exampleSelectBorder">
                             <option disabled selected>Пол</option>
-                            <option {{old('gender' == 1? ' selected' : '')}} value="1">Мужской</option>
-                            <option {{old('gender' == 2? ' selected' : '')}} value="2">Женский</option>
+                            <option {{old($user->gender == 1 || old('gender') ? ' selected' : '')}} value="1">Мужской</option>
+                            <option {{old($user->gender == 1 || old('gender') ? ' selected' : '')}} value="2">Женский</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="form-control" value="Добавить">
                     </div>
+
                 </form>
                 <!-- ./col -->
             </div>

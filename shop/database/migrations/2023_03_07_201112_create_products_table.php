@@ -22,8 +22,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('count');
             $table->boolean('is_published')->default(true);
-
-            $table->foreignId('category_id')->nullable()->index()->constrained('categories');
+            $table->foreignId('category_id')->nullable()->index()->constrained('category');
             $table->timestamps();
         });
     }

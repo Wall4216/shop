@@ -37,32 +37,30 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="price" placeholder="Цена">
                     </div>
-                    <select class="form-control select2" style="width: 100%;">
-                        <option name="category_id" selected="selected" disabled>Выберите категорию</option>
-                        <option value="1">Alaska</option>
-                        <option value="2">California</option>
 
-                    </select>
                     <div class="form-group">
                         <label></label>
                         <select name="tags[]" class="tags" multiple="multiple" data-placeholder="Выберите тег" style="width: 100%;">
-                            <option value="1">Alabama</option>
-                            <option value="2">Alaska</option>
+                            @foreach($tags as $tag)
+                                <option value="{{$tag->id}}">{{$tag->title}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label></label>
                         <select name="category_id" class="tags" multiple="multiple" data-placeholder="Выберите категорию" style="width: 100%;">
-                            <option value="1">Alabama</option>
-                            <option value="2">Alaska</option>
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label></label>
                         <select class="colors" multiple="multiple" name="colors[]" data-placeholder="Выберите цвет" style="width: 100%;">
-                            <option value="1">Alabama</option>
-                            <option value="2">Alaska</option>
+                            @foreach($colors as $color)
+                                <option value="{{$color->id}}">{{$color->title}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">

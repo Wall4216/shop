@@ -427,6 +427,7 @@
       </div>
 
     </header>
+    <router-view></router-view>
     <footer class="footer-default footer-3 ">
       <div class="footer-default__shap_1 position-absolute "> <img src="src/assets/images/shape/footer-shape-1.png"
                                                                    alt=""> </div>

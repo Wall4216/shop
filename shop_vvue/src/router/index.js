@@ -4,7 +4,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/tatmak',
+      path: '/',
       name: 'main',
       component: () => import('../views/main/Index.vue')
     },

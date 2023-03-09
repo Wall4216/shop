@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('content');
             $table->string('preview_image');
             $table->integer('price');
+            $table->integer('old_price');
             $table->integer('count');
             $table->boolean('is_published')->default(true);
             $table->foreignId('category_id')->nullable()->index()->constrained('category');

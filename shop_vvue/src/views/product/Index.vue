@@ -3560,7 +3560,17 @@ export default {
   name: "Product",
   mounted() {
     $(document).trigger('change')
+    this.getProducts();
+  },
+  methods: {
+    getProducts(){
+      this.axios.get('http://127.0.0.1:8000/api/products')
+          .then(res => {
+            console.log(res);
+      })
+    }
   }
+
 }
 </script>
 

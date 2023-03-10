@@ -209,6 +209,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{route('group.index')}}" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                Группы
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{route('product.index')}}" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
                             <p>

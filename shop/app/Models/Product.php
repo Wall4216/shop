@@ -13,9 +13,9 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
-    public function group()
+    public function color()
     {
-        return $this->belongsTo(Group::class, 'group_id', 'id');
+        return $this->belongsToMany(Color::class, 'color_products', 'product_id', 'color_id');
     }
     public function getImageUrlAttribute()
     {

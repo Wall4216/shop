@@ -318,9 +318,10 @@
                                         <h6> In stuck</h6>
                                       </div>
 
-                                      <div class="color-varient"> <template  v-for="groupProduct in products.group_products"> <a v-for="color in groupProduct.colors" href="#0" :style="`background: #${color.title}`"
+                                      <div class="color-varient">
+                                        <template  v-for="groupProduct in product.group_products"> <a v-for="color in groupProduct.colors" href="#0" :style="`background: #${color.title};`"
                                                                      class="color-name pink">
-                                        <span>Pink</span> </a></template></div>
+                                        <span>{{ color.title }}</span> </a></template></div>
                                       <div class="add-product">
                                         <h6>Qty:</h6>
                                         <div class="button-group">
@@ -2131,6 +2132,7 @@ export default {
           .then(res => {
             this.products = res.data.data
             console.log(this.products)
+            console.log(g)
       })
       .finally(v => {
             $(document).trigger('change')

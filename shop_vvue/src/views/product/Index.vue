@@ -317,17 +317,10 @@
                                         <h2> ${{ product.price}} <del> ${{product.old_price}}</del></h2>
                                         <h6> In stuck</h6>
                                       </div>
-                                      <div class="color-varient"> <a href="#0"
+
+                                      <div class="color-varient"> <template  v-for="groupProduct in products.group_products"> <a v-for="color in groupProduct.colors" href="#0" :style="`background: #${color.title}`"
                                                                      class="color-name pink">
-                                        <span>Pink</span> </a> <a href="#0"
-                                                                  class="color-name red">
-                                        <span>Red</span> </a>
-                                        <a href="#0"
-                                           class="color-name yellow"><span>Yellow</span>
-                                        </a> <a href="#0" class="color-name blue">
-                                          <span>Blue</span>
-                                        </a> <a href="#0" class="color-name black">
-                                          <span>Black</span> </a> </div>
+                                        <span>Pink</span> </a></template></div>
                                       <div class="add-product">
                                         <h6>Qty:</h6>
                                         <div class="button-group">
@@ -2137,6 +2130,7 @@ export default {
       this.axios.get('http://127.0.0.1:8000/api/products')
           .then(res => {
             this.products = res.data.data
+            console.log(this.products)
       })
       .finally(v => {
             $(document).trigger('change')

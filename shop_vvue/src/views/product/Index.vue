@@ -239,7 +239,7 @@
                                       class="flaticon-left-and-right-arrows"></i>
                                     <span>
                                                                             compare</span> </a> </li>
-                                  <li><a :href="`#popup${product.id}`" class="popup_link"> <i
+                                  <li><a @click="getProduct(product.id)" :href="`#popup${product.id}`" class="popup_link"> <i
                                       class="flaticon-visibility"></i>
                                     <span> quick view</span>
                                   </a> </li>
@@ -2124,6 +2124,7 @@ export default {
   data(){
     return {
       products: [],
+      popupProduc: null,
     }
   },
   methods: {
@@ -2132,10 +2133,17 @@ export default {
           .then(res => {
             this.products = res.data.data
             console.log(this.products)
-            console.log(g)
       })
       .finally(v => {
             $(document).trigger('change')
+      })
+    },
+    getProduct(){
+      this.axios.get(`http://127.0.0.1:8000/api/products/${id}`)
+          .then(res => {
+
+      })
+      .finally(v => {
       })
     }
 

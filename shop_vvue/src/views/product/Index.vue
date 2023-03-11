@@ -2132,18 +2132,18 @@ export default {
       this.axios.get('http://127.0.0.1:8000/api/products')
           .then(res => {
             this.products = res.data.data
-            console.log(this.products)
       })
       .finally(v => {
             $(document).trigger('change')
       })
     },
-    getProduct(){
+    getProduct(id){
       this.axios.get(`http://127.0.0.1:8000/api/products/${id}`)
           .then(res => {
-
+            console.log(res)
       })
       .finally(v => {
+        $(document).trigger('change')
       })
     }
 

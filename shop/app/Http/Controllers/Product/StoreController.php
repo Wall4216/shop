@@ -16,10 +16,7 @@ class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request)
     {
-
-
        $data = $request->validated();
-
        $productImages = $data['product_images'];
        $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
        $tagsIds = $data['tags'];

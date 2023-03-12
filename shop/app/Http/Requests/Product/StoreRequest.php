@@ -36,6 +36,7 @@ class StoreRequest extends FormRequest
             'is_published' => 'nullable',
             'category_id' => 'nullable',
             'group_id' => 'nullable',
+            'product_images' => 'nullable',
         ];
     }
 }

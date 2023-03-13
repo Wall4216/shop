@@ -2098,6 +2098,7 @@ export default {
   mounted() {
     $(document).trigger('change')
     this.getProducts();
+    this.getFilterList();
   },
   data(){
     return {
@@ -2123,6 +2124,16 @@ export default {
       .finally(v => {
         $(document).trigger('change')
       })
+    },
+    getFilterList()
+    {
+      this.axios.get(`http://127.0.0.1:8000/api/products/filters`)
+          .then(res => {
+            console.log(res)
+          })
+          .finally(v => {
+            $(document).trigger('change')
+          })
     }
 
   }

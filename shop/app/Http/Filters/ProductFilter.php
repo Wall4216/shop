@@ -14,7 +14,7 @@ class ProductFilter extends AbstractFilter
 
     protected function getCallbacks(): array
     {
-        return [
+        [
             self::CATEGORIES => [$this, 'categories'],
             self::COLORS => [$this, 'colors'],
             self::PRICE => [$this, 'price'],

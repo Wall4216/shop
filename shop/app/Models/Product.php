@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Traits\FilterTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    use FilterTrait;
     protected $table = 'products';
     protected $guarded = false;
     public function category()

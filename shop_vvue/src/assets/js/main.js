@@ -987,7 +987,7 @@ jQuery(function ($) {
     }
     ;
 
-    //  Price Filter
+    //  Price Filters
     if ($("#price-range").length) {
       $("#price-range").slider({
         range: true,

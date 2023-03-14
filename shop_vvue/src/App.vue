@@ -541,7 +541,7 @@ export default {
   name: 'App',
   components: {},
   mounted() {
-    $(document).trigger('change')
+    $(document).trigger('init')
   }
 }
 </script>

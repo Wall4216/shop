@@ -1,6 +1,6 @@
 jQuery(function ($) {
   'use strict';
-  $(document).on('change',function () {
+  $(document).on('init',function () {
 
     /****======  Sticky Header ======*******/
     var scrollPosition = window.scrollY;

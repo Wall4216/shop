@@ -2096,7 +2096,7 @@
 export default {
   name: "Product",
   mounted() {
-    $(document).trigger('change')
+    $(document).trigger('init')
     this.getProducts();
     this.getFilterList();
   },
@@ -2113,7 +2113,7 @@ export default {
             this.products = res.data.data
       })
       .finally(v => {
-            $(document).trigger('change')
+            $(document).trigger('init')
       })
     },
     getProduct(id){
@@ -2122,7 +2122,7 @@ export default {
             this.popupProduct = res.data.data
       })
       .finally(v => {
-        $(document).trigger('change')
+        $(document).trigger('init')
       })
     },
     getFilterList()
@@ -2132,7 +2132,7 @@ export default {
             console.log(res)
           })
           .finally(v => {
-            $(document).trigger('change')
+            $(document).trigger('init')
           })
     }
 

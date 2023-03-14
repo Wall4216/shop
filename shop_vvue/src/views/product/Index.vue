@@ -100,18 +100,8 @@
                     <h4>Select Categories</h4>
                     <div class="checkbox-item">
                       <form>
-                        <div class="form-group"> <input type="checkbox" id="bedroom"> <label
-                            for="bedroom">Bedroom</label> </div>
-                        <div class="form-group"> <input type="checkbox" id="decoration"> <label
-                            for="decoration">Decoration</label> </div>
-                        <div class="form-group"> <input type="checkbox" id="kitchen"> <label
-                            for="kitchen">Kitchen</label> </div>
-                        <div class="form-group"> <input type="checkbox" id="clothing"> <label
-                            for="clothing">Clothing</label> </div>
-                        <div class="form-group"> <input type="checkbox" id="office"> <label
-                            for="office">Office</label> </div>
-                        <div class="form-group m-0"> <input type="checkbox" id="lighting"> <label
-                            for="lighting">Lighting</label> </div>
+                        <div v-for="category in filterList.categories" class="form-group"> <input type="checkbox" :id="category.id"> <label
+                            :for="caregory.id">{{ category.title }}</label> </div>
                       </form>
                     </div>
                   </div>
@@ -2104,6 +2094,7 @@ export default {
     return {
       products: [],
       popupProduct: null,
+      filterList: [],
     }
   },
   methods: {
@@ -2129,7 +2120,7 @@ export default {
     {
       this.axios.get(`http://127.0.0.1:8000/api/products/filters`)
           .then(res => {
-            console.log(res)
+            this.filterList=res.data
           })
           .finally(v => {
             $(document).trigger('init')

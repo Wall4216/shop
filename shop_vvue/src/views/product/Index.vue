@@ -101,27 +101,14 @@
                     <div class="checkbox-item">
                       <form>
                         <div v-for="category in filterList.categories" class="form-group"> <input type="checkbox" :id="category.id"> <label
-                            :for="caregory.id">{{ category.title }}</label> </div>
+                            :for="category.id">{{ category.title }}</label> </div>
                       </form>
                     </div>
                   </div>
                   <div class="single-sidebar-box mt-30 wow fadeInUp animated">
                     <h4>Color Option </h4>
                     <ul class="color-option">
-                      <li> <a href="#0" class="color-option-single"> <span> Black</span> </a> </li>
-                      <li> <a href="#0" class="color-option-single bg2"> <span> Yellow</span> </a>
-                      </li>
-                      <li> <a href="#0" class="color-option-single bg3"> <span> Red</span> </a> </li>
-                      <li> <a href="#0" class="color-option-single bg4"> <span> Blue</span> </a> </li>
-                      <li> <a href="#0" class="color-option-single bg5"> <span> Green</span> </a>
-                      </li>
-                      <li> <a href="#0" class="color-option-single bg6"> <span> Olive</span> </a>
-                      </li>
-                      <li> <a href="#0" class="color-option-single bg7"> <span> Lime</span> </a> </li>
-                      <li> <a href="#0" class="color-option-single bg8"> <span> Pink</span> </a> </li>
-                      <li> <a href="#0" class="color-option-single bg9"> <span> Cyan</span> </a> </li>
-                      <li> <a href="#0" class="color-option-single bg10"> <span> Magenta</span> </a>
-                      </li>
+                      <li v-for="color in filterList.colors"> <a href="#0" class="color-option-single" :style="`background: #${color.title}` "> <span> {{color.title}}</span> </a> </li>
                     </ul>
                   </div>
                   <div class="single-sidebar-box mt-30 wow fadeInUp animated">

@@ -123,7 +123,7 @@
                   <div class="single-sidebar-box mt-30 wow fadeInUp animated pb-0 border-bottom-0 ">
                     <h4>Tags </h4>
                     <ul class="popular-tag">
-                      <li v-for="tag in filterList.tags"><a href="#0">{{ tag.title }}</a></li>
+                      <li  v-for="tag in filterList.tags"><a @click.prevent="addTag(tag.id)" href="#0">{{ tag.title }}</a></li>
                     </ul>
                   </div>
                 </div>
@@ -2059,6 +2059,7 @@
 <script>
 export default {
   name: "Product",
+
   mounted() {
     $(document).trigger('init')
     this.getProducts();
@@ -2075,24 +2076,53 @@ export default {
       tags: [],
     }
   },
+
   methods: {
+    getProductList()
+    {
+      let prices = $('#priceRange').val()
+      prices = prices.replace(/[\s+]|[s]/g, '').split('-');
+      this.axios.post('http://127.0.0.1:8000/api/products', {
+        'categories': this.categories,
+        'colors': this.colors,
+        'prices': this.prices,
+        'tags': this.tags,
+      })
+          .then(res => {
+            this.products = res.data.data
+          })
+          .finally(v => {
+            $(document).trigger('init')
+          })
+      console.log(prices)
+    },
     addColor(id)
     {
       if(this.colors.includes(id))
       {
         this.colors.push(id)
-      }else {
+      } else {
         this.colors = this.colors.filter( elem => {
           return elem !== id
         })
       }
     },
-    getProductList()
+    addTag(id)
     {
-      console.log(this.colors)
+      if(this.tags.includes(id))
+      {
+        this.tags.push(id)
+      } else {
+        this.tags = this.tags.filter( elem => {
+          return elem !== id
+        })
+      }
     },
+
     getProducts(){
-      this.axios.get('http://127.0.0.1:8000/api/products')
+      this.axios.post('http://127.0.0.1:8000/api/products', {
+
+      })
           .then(res => {
             this.products = res.data.data
       })

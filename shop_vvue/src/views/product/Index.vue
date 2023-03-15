@@ -108,7 +108,7 @@
                   <div class="single-sidebar-box mt-30 wow fadeInUp animated">
                     <h4>Color Option </h4>
                     <ul class="color-option">
-                      <li v-for="color in filterList.colors"> <a href="#0" class="color-option-single" :style="`background: #${color.title}` "> <span> {{color.title}}</span> </a> </li>
+                      <li v-for="color in filterList.colors"> <a @click.prevent="addColor(color.id)" href="#0" class="color-option-single" :style="`background: #${color.title}` "> <span> {{color.title}}</span> </a> </li>
                     </ul>
                   </div>
                   <div class="single-sidebar-box mt-30 wow fadeInUp animated">
@@ -2076,9 +2076,20 @@ export default {
     }
   },
   methods: {
+    addColor(id)
+    {
+      if(this.colors.includes(id))
+      {
+        this.colors.push(id)
+      }else {
+        this.colors = this.colors.filter( elem => {
+          return elem !== id
+        })
+      }
+    },
     getProductList()
     {
-      console.log(this.categories)
+      console.log(this.colors)
     },
     getProducts(){
       this.axios.get('http://127.0.0.1:8000/api/products')

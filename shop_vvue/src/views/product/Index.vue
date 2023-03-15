@@ -123,20 +123,7 @@
                   <div class="single-sidebar-box mt-30 wow fadeInUp animated pb-0 border-bottom-0 ">
                     <h4>Tags </h4>
                     <ul class="popular-tag">
-                      <li><a href="#0">Tools</a></li>
-                      <li><a href="#0">Store</a></li>
-                      <li><a href="#0">Decoration</a></li>
-                      <li><a href="#0">Online</a></li>
-                      <li><a href="#0">Furnitures</a></li>
-                      <li><a href="#0">Beauty</a></li>
-                      <li><a href="#0">Fashion</a></li>
-                      <li><a href="#0">Office</a></li>
-                      <li><a href="#0">Clothing</a></li>
-                      <li><a href="#0">Interior</a></li>
-                      <li><a href="#0">Good</a></li>
-                      <li><a href="#0">Standard</a></li>
-                      <li><a href="#0">Chair’s</a></li>
-                      <li><a href="#0">Living Room</a></li>
+                      <li v-for="tag in filterList.tags"><a href="#0">{{ tag.title }}</a></li>
                     </ul>
                   </div>
                 </div>

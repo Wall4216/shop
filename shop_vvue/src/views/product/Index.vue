@@ -2095,6 +2095,20 @@ export default {
       this.axios.get(`http://127.0.0.1:8000/api/products/filters`)
           .then(res => {
             this.filterList=res.data
+            if ($("#price-range").length) {
+              $("#price-range").slider({
+                range: true,
+                min: this.filterList.price.min,
+                max: this.filterList.price.max,
+                values: [this.filterList.price.min, this.filterList.price.max],
+                slide: function (event, ui) {
+                  $("#priceRange").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                }
+              });
+              $("#priceRange").val("$" + $("#price-range").slider("values", 0) + " - $" + $("#price-range").slider("values", 1));
+            }
+            ;
+
           })
           .finally(v => {
             $(document).trigger('init')

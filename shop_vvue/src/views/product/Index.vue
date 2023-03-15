@@ -100,7 +100,7 @@
                     <h4>Select Categories</h4>
                     <div class="checkbox-item">
                       <form>
-                        <div v-for="category in filterList.categories" class="form-group"> <input type="checkbox" :id="category.id"> <label
+                        <div v-for="category in filterList.categories" class="form-group" > <input v-model="categories" :value="category.id" type="checkbox" :id="category.id"> <label
                             :for="category.id">{{ category.title }}</label> </div>
                       </form>
                     </div>
@@ -116,7 +116,7 @@
                     <div class="slider-box">
                       <div id="price-range" class="slider"></div>
                       <div class="output-price"> <label for="priceRange">Price:</label> <input
-                          type="text" id="priceRange" readonly> </div> <button class="filterbtn"
+                          type="text" id="priceRange" readonly> </div> <button class="filterbtn" @click.prevent="getProductList()"
                                                                                type="submit"> Filter </button>
                     </div>
                   </div>
@@ -2069,9 +2069,17 @@ export default {
       products: [],
       popupProduct: null,
       filterList: [],
+      categories: [],
+      colors: [],
+      prices: [],
+      tags: [],
     }
   },
   methods: {
+    getProductList()
+    {
+      console.log(this.categories)
+    },
     getProducts(){
       this.axios.get('http://127.0.0.1:8000/api/products')
           .then(res => {

@@ -9,7 +9,7 @@ class ProductFilter extends AbstractFilter
 {
     const CATEGORIES = 'categories';
     const COLORS = 'colors';
-    const PRICES = 'price';
+    const PRICES = 'prices';
     const TAGS = 'tags';
 
     protected function getCallbacks(): array
@@ -17,7 +17,7 @@ class ProductFilter extends AbstractFilter
         return [
             self::CATEGORIES => [$this, 'categories'],
             self::COLORS => [$this, 'colors'],
-            self::PRICES => [$this, 'price'],
+            self::PRICES => [$this, 'prices'],
             self::TAGS => [$this, 'tags'],
         ];
     }
@@ -35,7 +35,7 @@ class ProductFilter extends AbstractFilter
     }
     protected function prices(Builder $builder, $value)
     {
-        $builder->whereBetween('price', $value);
+        $builder->whereBetween('prices', $value);
 
     }
     protected function tags(Builder $builder, $value)

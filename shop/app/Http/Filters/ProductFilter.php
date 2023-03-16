@@ -35,7 +35,7 @@ class ProductFilter extends AbstractFilter
     }
     protected function prices(Builder $builder, $value)
     {
-        $builder->whereBetween('prices', $value);
+        $builder->whereBetween('price', $value);
 
     }
     protected function tags(Builder $builder, $value)

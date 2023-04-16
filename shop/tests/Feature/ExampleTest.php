@@ -18,4 +18,35 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    /** @test */
+     public function testRoutes()
+    {
+        $appURL = env('APP_URL');
+
+        $urls = [
+            '/',
+            '/posts',
+            '/tags' 
+        ];
+
+        echo  PHP_EOL;
+
+        foreach ($urls as $url) {
+            $response = $this->get($url);
+            if((int)$response->status() !== 200){
+                echo  $appURL . $url . ' (FAILED) did not return a 200.';
+                $this->assertTrue(false);
+            } else {
+                echo $appURL . $url . ' (success ?)';
+                $this->assertTrue(true);
+            }
+            echo  PHP_EOL;
+        }
+
+    }
 }

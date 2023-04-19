@@ -10,4 +10,8 @@ trait FilterTrait
         $filter->apply($builder);
         return $builder;
     }
+public function apply(Builder $builder, FilterInterface $filter){
+        $apply->apply($builder);
+        return $builder;
+    }
 }
